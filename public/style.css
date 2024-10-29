@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  place-items: center;
+  background-color: #f0f4f8; /* Light background */
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 36px;
+  color: #2d2d2d;
+}
+
+.main {
+  border: 8px solid #000000; /* Border color */
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 8px 16px;
+  color: #ff6f61;
+  background-color: #0d7c66;
+  border-bottom: 2px solid #15b392;
+  width: 320px; /* Set width to match message container */
+}
+
+.name .fa-user {
+  margin-right: 4px; /* Adds gap between icon and name */
+  width: 36px; /* Adjust size as needed */
+  height: 36px;
+}
+
+.name > span {
+  color: #bbb;
+}
+
+.name-input {
+  font-size: 24px;
+  font-weight: 700;
+  color: #181c14; /* Dark color */
+  flex-grow: 1;
+  border: none;
+  margin: 0; /* Remove margin */
+  outline: none;
+  background-color: #0d7c66;
+  width: 100%; /* Ensure full width */
+}
+
+.message-container {
+  height: 60vh; /* Adjust this percentage as needed */
+  max-height: 500px; /* Limit max height on larger screens */
+  display: flex;
+  flex-direction: column;
+  background-color: white; /* White background for messages */
+  width: 320px;
+  /* height: 500px; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px; 
+  margin: 0;
+}
+
+.message-left,
+.message-right {
+  list-style: none;
+  padding: 8px 12px;
+  margin: 12px;
+  max-width: 250px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.message-left {
+  border-radius: 20px 20px 20px 0px;
+  align-self: flex-start;
+  background-color: #d1f7f1; /* Light teal */
+  box-shadow: -2px 2px 4px #dcdcdc;
+}
+
+.message-right {
+  border-radius: 20px 20px 0px 20px;
+  align-self: flex-end;
+  background-color: #86d293; /* Coral color */
+  box-shadow: 2px 2px 4px #dcdcdc;
+  color: #ffffff; /* White text */
+}
+
+.message-left > p > span,
+.message-right > p > span {
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.feedback {
+  font-style: italic;
+  font-size: 14px;
+  padding: 0px 16px 16px 16px;
+  color: #2d2d2d;
+  text-align: center;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column; /* Change to column for proper layout */
+  width: 320px; /* Match the width of message container */
+  background-color: #0d7c66; /* Background for form */
+  padding: 8px; /* Consistent padding */
+  border-top: 2px solid #15b392;
+  margin: 0; /* Ensure margin is 0 */
+}
+
+.input-container {
+  display: flex;
+  align-items: center; /* Align items to center */
+  width: 100%; /* Ensure full width */
+}
+
+.message-input {
+  flex-grow: 1;
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  background-color: #fefae0; /* Light background for input */
+  border-radius: 12px;
+  margin: 0; /* Ensure margin is 0 */
+}
+
+.file-upload {
+  display: inline-block;
+  margin-left: 10px; /* Space between input and upload button */
+}
+
+.file-upload input {
+  display: none;
+}
+
+.file-upload label {
+  cursor: pointer;
+  font-size: 20px;
+  color: #2d2d2d;
+}
+
+.file-upload label:hover {
+  color: #000000; /* Coral on hover */
+}
+
+.send-button {
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  padding: 0px 8px;
+  outline: none;
+  background-color: white; /* Coral button */
+  color: black; /* White text */
+  border-color: #000000;
+  cursor: pointer;
+  border-radius: 12px;
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  transition: background-color 0.3s ease;
+}
+
+.send-button img {
+  margin-right: 20px; /* Space between the icon and text */
+  width: 20px; /* Set a consistent size for the icon */
+  height: 20px; /* Set a consistent size for the icon */
+}
+
+.preview-container {
+  position: absolute; /* Positioning relative to input */
+  right: 10px; /* Distance from right */
+  top: 10px; /* Distance from top */
+  width: 48px; /* Set a width for the preview container */
+  height: 48px; /* Set a height for the preview container */
+  border: 1px dashed #ccc; /* Dashed border for preview */
+  border-radius: 12px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background */
+  display: none; /* Hide by default */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Center the content */
+}
+
+.preview-container img,
+.preview-container video {
+   max-width: 100%;  /*Make sure the image/video fits within the container */ 
+  max-height: 100%;  /*Make sure the image/video fits within the container */
+}
+
+/* Media queries for responsiveness */ 
+@media (max-width: 600px) {
+  .message-container,
+  .message-form {
+    width: 100%;
+  }
+} 
